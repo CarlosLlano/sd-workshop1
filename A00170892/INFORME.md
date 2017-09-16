@@ -232,9 +232,9 @@ __Características de los nodos__
 | Nodo          | Ip             |
 | ------------- |:--------------:|
 | load_balancer | 192.168.56.101 |
-| db_server     | 192.168.56.101 |
-| web_server1   | 192.168.56.101 |
-| web_server2   | 192.168.56.101 |
+| db_server     | 192.168.56.102 |
+| web_server1   | 192.168.56.103 |
+| web_server2   | 192.168.56.104 |
 
 
 __Funcionamiento__
