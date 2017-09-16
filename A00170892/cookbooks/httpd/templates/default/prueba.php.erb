@@ -1,0 +1,17 @@
+<?php
+$con = mysql_connect("192.168.56.102","<%= @service_name %>","<%= @service_name %>");
+if (!$con)
+  {
+  die('ERROR: ' . mysql_error() . "\n---" . mysql_errno());
+  }
+
+mysql_select_db("database1", $con);
+
+$result = mysql_query("SELECT * FROM WebServer WHERE name='<%= @service_name %>'");
+
+while ($fila = mysql_fetch_assoc($result))
+{
+    echo $fila["name"] . " " . $fila["ip"];
+}
+mysql_close($con);
+?>
