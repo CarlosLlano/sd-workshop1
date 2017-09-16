@@ -5,7 +5,7 @@ En este punto no debe incluir recetas solo se requiere que usted identifique los
 
 ***BASE DE DATOS***
 
-*Instalación de mariadb*
+__Instalación de mariadb__
 
   * yum install mariadb-server
   *	service firewalld start
@@ -13,7 +13,7 @@ En este punto no debe incluir recetas solo se requiere que usted identifique los
   *	firewall-cmd --reload
   *	service mariadb.service start
 
-*Configuración de la base de datos*
+__Configuración de la base de datos__
 
   * /usr/bin/mysql_secure_installation
 
@@ -42,7 +42,7 @@ Las respuestas a cada paso son:
      ![database](https://user-images.githubusercontent.com/17281733/30508614-d22073ba-9a60-11e7-898f-d1483c4dd58c.jpeg)
 
 
-*Configuracion de permisos*
+__Configuracion de permisos__
 
 Una vez creado el esquema, la tabla y los datos de la misma, se debe dar permiso de consulta a los servidores web.
 
@@ -52,14 +52,14 @@ Una vez creado el esquema, la tabla y los datos de la misma, se debe dar permiso
 
 ***SERVIDORES WEB***
 
-*Instalacion de httpd*
+__Instalacion de httpd__
 
    * yum install httpd
    * service firewalld start
    * firewall-cmd --zone=public --add-port=80/tcp --permanent
    * firewall-cmd –reload
 
-*Configuracion para conexión remota*
+__Configuracion para conexión remota__
 
    * yum install mariadb
    * sudo setsebool httpd_can_network_connect_db on
@@ -69,7 +69,7 @@ Una vez creado el esquema, la tabla y los datos de la misma, se debe dar permiso
    * yum install php
    * yum install php-mysql
 
-*Creación del servicio web*
+__Creación del servicio web__
 
    * cd /var/www/html/
    * vi template.php (se inserta el código html y php)
@@ -83,11 +83,11 @@ Una vez creado el esquema, la tabla y los datos de la misma, se debe dar permiso
       
 ***BALANCEADOR DE CARGA HAPROXY***
 
-*Instalacion de haproxy*
+__Instalacion de haproxy__
 
    * yum install haproxy
 
-*Configuracion de haproxy*
+__Configuracion de haproxy__
 
 Modificar archivo /etc/haproxy/haproxy.cfg con los datos de los servidores web.
 
@@ -227,7 +227,7 @@ La estructura del directorio de cookbooks es la siguiente:
 
 ***4. Incluya evidencias gráficas que muestran el funcionamiento de lo solicitado***
 
-*Características de los nodos*
+__Características de los nodos__
 
 | Nodo          | Ip             |
 | ------------- |:--------------:|
@@ -237,14 +237,14 @@ La estructura del directorio de cookbooks es la siguiente:
 | web_server2   | 192.168.56.101 |
 
 
-*Funcionamiento*
+__Funcionamiento__
 
     * el cliente pide el servicio “template.php” a traves del balanceador: 192.168.56.101/template.php
     * el servicio consiste en dar las características (nombre y dirección ip) del servidor web que atiende el servicio
     * el balanceador redirige la petición a uno de los servidores web
     * el servidor web consulta la base de datos y responde al servicio
 
-*Evidencias graficas*
+__Evidencias graficas__
 
 ![demostracion](https://user-images.githubusercontent.com/17281733/30508741-790598a2-9a63-11e7-8f3f-2a9b9147546b.gif)
 
