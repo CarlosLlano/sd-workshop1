@@ -74,7 +74,7 @@ __Creación del servicio web__
    * cd /var/www/html/
    * vi template.php (se inserta el código html y php)
     
-      En el código php que realiza la conexión a la base de datos, se ponen las credenciales del servidor. En el
+      En el código php que realiza la conexión a la base de datos, se ponen las credenciales del servidor.
       
       ![php-webserver1](https://user-images.githubusercontent.com/17281733/30508627-60ea2046-9a61-11e7-8312-fb1ad6a13e88.jpeg)
       
